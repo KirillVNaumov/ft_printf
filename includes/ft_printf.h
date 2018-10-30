@@ -15,7 +15,7 @@
 
 # include "../libft/libft.h"
 # include <stdarg.h>
-
+# include <wchar.h>
 
 
 # include <limits.h>
@@ -39,9 +39,11 @@ typedef struct  s_flags
 //SRCS
 
 int          parse_flags(char **format, t_flags *flags, va_list *arg);
+int          regular_character_string(char **next, t_flags *flags, va_list *arg);
+int          wide_character_string(/*char *next, t_flags *flags, va_list *arg*/);
 char         *conversions(char **format, t_flags *flags, va_list *arg);
-char         *conversion_c_C(va_list *arg, t_flags *flags);
-char         *conversion_s_S(va_list *arg, t_flags *flags);
+char         *conversion_c(va_list *arg, t_flags *flags);
+char         *conversion_s(va_list *arg, t_flags *flags);
 char         *conversion_p(va_list *arg);
 char         *conversion_d_i(va_list *arg, t_flags *flags);
 char         *conversion_o_O(va_list *arg, t_flags *flags);

@@ -6,24 +6,24 @@
 /*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 15:24:43 by knaumov           #+#    #+#             */
-/*   Updated: 2018/10/28 23:46:30 by knaumov          ###   ########.fr       */
+/*   Updated: 2018/10/30 13:40:30 by knaumov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static long long	ft_abs(long long nb)
+static intmax_t		ft_abs(intmax_t nb)
 {
 	if (nb < 0)
 		nb = -nb;
 	return (nb);
 }
 
-static char	*itoa_filler(char *tab, long long value, int base, int flag)
+static char			*itoa_filler(char *tab, intmax_t value, int base, int flag)
 {
-	long long			tmp;
-	int					size;
-	char				*str;
+	uintmax_t		tmp;
+	int				size;
+	char			*str;
 
 	size = 0;
 	tmp = ft_abs(value);
@@ -43,11 +43,11 @@ static char	*itoa_filler(char *tab, long long value, int base, int flag)
 	return (str);
 }
 
-char	*ft_itoa_base(long long value, int base)
+char				*ft_itoa_base(intmax_t value, int base)
 {
-	char				*str;
-	char				*tab;
-	int					flag;
+	char			*str;
+	char			*tab;
+	int				flag;
 
 	flag = 0;
 	tab = "0123456789abcdef";

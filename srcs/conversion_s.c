@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-char    *conversion_s_S(va_list *arg, t_flags *flags)
+char    *conversion_s(va_list *arg, t_flags *flags)
 {
     char    *str;
     char    *tmp;

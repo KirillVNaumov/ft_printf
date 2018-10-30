@@ -14,18 +14,19 @@ int         narrow_ft_printf(const char *format, va_list *arg, int length)
     }
 
     tmp = ft_strccrt(format, '%');
-    ft_putstr(tmp);
     length += ft_strlen(tmp);
+    write(1, tmp, ft_strlen(tmp));
+
     free(tmp); //PRINTING EVERYTHING BEFORE '%'
     
     ++next;
     ft_bzero(&flags, sizeof(t_flags));
     parse_flags(&next, &flags, arg); // IDENTIFYING EVERYTHING AFTER % AND BEFORE CONVERSIONS
 
-    tmp = conversions(&next, &flags, arg);
-    length += ft_strlen(tmp);
-    ft_putstr(tmp);
-    free(tmp);
+    if (flags.conversion == 'C' || flags.conversion == 'S')
+        length += wide_character_string(/*next, &flags, arg*/);
+    else
+        length += regular_character_string(&next, &flags, arg);
     free(flags.format);
     length = narrow_ft_printf(next, arg, length);
     return (length);

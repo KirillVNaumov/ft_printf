@@ -40,6 +40,11 @@ char    *handling_width(char **format, t_flags *flags, va_list *arg)
         {
             star_width = -1;
             width = va_arg(*arg, int);
+            if (width < 0)
+            {
+                width = -width;
+                flags->right_padding = 1;
+            }
             flags->width = width;
         }
         if (ft_isdigit(**format))
@@ -117,8 +122,12 @@ int     parse_flags(char **format, t_flags *flags, va_list *arg)
         return (-1);
     if ((handling_precision(format, flags, arg)) == NULL)
         return (-1);
-   if ((handling_format(format, flags)) == NULL)
+    if ((handling_format(format, flags)) == NULL)
         return (-1);
+    if (!ft_strcmp(flags->format, "l") && (**format) == 'c')
+        flags->conversion = 'C';
+    if (!ft_strcmp(flags->format, "l") && (**format) == 's')
+        flags->conversion = 'S';
 //    printf("Flags: Hash = %d  Space = %d  Plus = %d  Right Padding = %d  Zero = %d  Width = %d  Precision = %d  Format = %s\n", flags->hashtag, flags->space, flags->plus, flags->right_padding, flags->zero_padding, flags->width, flags->precision, flags->length);
     return (1);
 }

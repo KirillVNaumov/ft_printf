@@ -6,7 +6,7 @@
 #    By: knaumov <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/25 10:18:27 by knaumov           #+#    #+#              #
-#    Updated: 2018/10/29 19:47:34 by knaumov          ###   ########.fr        #
+#    Updated: 2018/10/29 18:39:06 by knaumov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ all: $(NAME)
 $(NAME):
 	@gcc $(FLAGS) $(SRCS) $(INCLUDES) -c -g
 	@echo "$(GREEN)Making objects files$(RESET)"
-	@make -C libft
+#	@make -C libft
 	@ar rc $(NAME) ./*.o ./libft/*.o
 	@ranlib $(NAME)
 	@echo "$(GREEN)Compiling libftprintf.a$(RESET)"
@@ -40,7 +40,7 @@ clean:
 fclean: clean
 	@/bin/rm -f $(NAME)
 	@echo "$(RED)Deleting libftprintf.a$(RESET)"
-	@make -C libft fclean
+#	@make -C libft fclean
 	@echo "$(BLUE)Complete$(RESET)"
 
 re: fclean all

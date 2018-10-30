@@ -19,7 +19,7 @@ char        *adding_width(t_flags *flags, char *str)
     }
     else
         extra = ft_bchar(flags->width - (int)ft_strlen(str), fill);
-    if (flags->zero_padding == 1 && (str[0] == '+' || str[0] == '-'))
+    if (flags->zero_padding == 1 && (str[0] == '+' || str[0] == '-' || str[0] == ' '))
         str = ft_update(str, ft_strsub(str, 1, ft_strlen(str) - 1));
     if (flags->right_padding == 1)
         str = ft_update(str, ft_strjoin(str, extra));
@@ -29,6 +29,8 @@ char        *adding_width(t_flags *flags, char *str)
         str = ft_update(str, ft_strjoin("-", str));
     else if (flags->zero_padding == 1 && flags->plus == 1)
         str = ft_update(str, ft_strjoin("+", str));
-    free(extra);    
+    else if (flags->zero_padding == 1 && flags->space == 1)
+        str = ft_update(str, ft_strjoin(" ", str));
+    free(extra);
     return (str);
 }

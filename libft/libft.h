@@ -6,7 +6,7 @@
 /*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 13:05:51 by knaumov           #+#    #+#             */
-/*   Updated: 2018/10/28 23:47:07 by knaumov          ###   ########.fr       */
+/*   Updated: 2018/10/30 13:37:06 by knaumov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <wchar.h>
 
 char				*ft_update(char *str, char *update);
 void				*ft_memset(void *b, int c, size_t len);
@@ -71,12 +72,16 @@ char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 char				*ft_itoa(intmax_t n);
 void				ft_putchar(char c);
+void				ft_putwchar(wchar_t c);
 void				ft_putstr(char const *s);
+void				ft_putwstr(wchar_t *s);
 void				ft_putendl(char const *s);
 void				ft_putnbr(int n);
 void				ft_putunsignedint(unsigned int n);
 void				ft_putchar_fd(char c, int fd);
+void				ft_putwchar_fd(wchar_t c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
+void				ft_putwstr_fd(wchar_t *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 typedef struct		s_list
@@ -110,7 +115,7 @@ int					ft_btree_level_count(t_btree *root);
 void				ft_btree_insert_data(t_btree **root, void *item, \
 		int (*cmpf)(void *, void *));
 int					ft_lstsize(t_list *root);
-char				*ft_itoa_base(long long value, int base);
+char				*ft_itoa_base(intmax_t value, int base);
 int					get_next_line(const int fd, char **line);
 char				*ft_strcon(char **arr, char *c);
 
