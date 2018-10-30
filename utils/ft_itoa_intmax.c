@@ -1,15 +1,15 @@
 # include "ft_printf.h"
 
-static intmax_t	ft_abs(intmax_t nb)
+static long long	ft_abs(long long nb)
 {
 	if (nb < 0)
 		nb = -nb;
 	return (nb);
 }
 
-static char		*itoa_filler(char *tab, intmax_t value, int flag)
+static char		*itoa_filler(char *tab, long long value, int flag)
 {
-	intmax_t			tmp;
+	long long			tmp;
 	int			size;
 	char		*str;
 
@@ -33,7 +33,7 @@ static char		*itoa_filler(char *tab, intmax_t value, int flag)
 	return (str);
 }
 
-char			*ft_itoa_intmax(intmax_t value)
+char			*ft_itoa_intmax(long long value)
 {
 	char		*str;
 	char		*tab;
