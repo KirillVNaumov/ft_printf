@@ -25,11 +25,11 @@ int main()
 // p = 5;
 //     ft_printf("%jx\n", -4294967296);
 //    ft_printf("%#o\n", 0);
-wchar_t wide[3] = {33121, 33121, 0};
+//wchar_t wide[3] = {33121, 33121, 0};
 
 //	ft_putwchar(33121);
 
-	ft_printf("%-10C", 33121);
+	ft_printf("%s%o\n", "\x1B[31m", 127);
 //    printf("reg = %d %C %s %d %u %X %c", 123, L'ÊM-^ZM-^V', "123", 123, -1, 123, 'a');
     	// printf("%#8x\n", 2);
     // printf("%#o\n", 0);

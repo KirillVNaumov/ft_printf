@@ -5,10 +5,14 @@ char          *conversions(char **format, t_flags *flags, va_list *arg)
     char    *answer;
 
     answer = ft_strnew(1);
-    if ((**format) == 's' && ft_strcmp(flags->format, "l"))
-        answer = ft_update(answer, conversion_s(arg, flags));
-    if ((**format) == 'c' && ft_strcmp(flags->format, "l"))
-        answer = ft_update(answer, conversion_c(arg, flags));
+    if (flags->conversion == 'C')
+        answer = ft_update(answer, conversion_wide_c(arg));
+    if (flags->conversion == 'S')
+        answer = ft_update(answer, conversion_wide_s(arg));
+    if ((**format) == 's')
+        answer = ft_update(answer, conversion_s(arg));
+    if ((**format) == 'c')
+        answer = ft_update(answer, conversion_c(arg));
     if ((**format) == 'i' || (**format) == 'd')
         answer = ft_update(answer, conversion_d_i(arg, flags));
     if ((**format) == 'p') 
@@ -17,6 +21,8 @@ char          *conversions(char **format, t_flags *flags, va_list *arg)
         answer = ft_update(answer, conversion_u_D_U(arg, flags));
     if ((**format) == 'o' || (**format) == 'O') 
         answer = ft_update(answer, conversion_o_O(arg, flags));
+    if ((**format) == 'b') 
+        answer = ft_update(answer, conversion_b(arg, flags));
     if ((**format) == 'x' || (**format) == 'X') 
         answer = ft_update(answer, conversion_x_X(arg, flags));
     if ((**format) == '%')

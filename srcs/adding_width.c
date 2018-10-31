@@ -8,9 +8,7 @@ char        *adding_width(t_flags *flags, char *str)
     if (flags->width <= (int)ft_strlen(str))
         return (str);
     fill = ' ';
-    if (flags->zero_padding == 1 && flags->precision == 0 && flags->conversion != 's' && \
-        flags->conversion != 'c' && flags->conversion != 'C' && flags->conversion != 'S' && \
-        flags->conversion != 'p')
+    if (flags->zero_padding == 1 && flags->precision == 0 && flags->conversion != 'p')
         fill = '0';
     if ((flags->conversion != 'x' || flags->conversion != 'X') && flags->zero_padding == 1 && flags->hashtag == 1)
     {

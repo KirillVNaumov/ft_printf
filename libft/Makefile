@@ -6,7 +6,7 @@
 #    By: knaumov <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/10 09:50:35 by knaumov           #+#    #+#              #
-#    Updated: 2018/10/30 21:54:44 by knaumov          ###   ########.fr        #
+#    Updated: 2018/10/31 13:51:44 by knaumov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,6 +91,7 @@ FILES = ./ft_atoi.c \
 		./ft_putwstr.c \
 		./ft_putwstr_fd.c \
 		./ft_wstrlen.c \
+		./ft_wstrdup.c \
 		./ft_strcon.c
 OBJ =   ./ft_atoi.o \
 		./ft_bzero.o \
@@ -172,6 +173,7 @@ OBJ =   ./ft_atoi.o \
 		./ft_putwstr.o \
 		./ft_putwstr_fd.o \
 		./ft_wstrlen.o \
+		./ft_wstrdup.o \
 		./ft_strcon.o
 
 RESET = \033[0m
