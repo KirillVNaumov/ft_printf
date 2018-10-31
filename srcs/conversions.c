@@ -9,9 +9,9 @@ char          *conversions(char **format, t_flags *flags, va_list *arg, int *len
         answer = ft_update(answer, conversion_wide_c(arg));
     if (flags->conversion == 'S')
         answer = ft_update(answer, conversion_wide_s(arg, length));
-    if ((**format) == 's')
+    if (flags->conversion == 's')
         answer = ft_update(answer, conversion_s(arg));
-    if ((**format) == 'c')
+    if (flags->conversion == 'c')
         answer = ft_update(answer, conversion_c(arg));
     if ((**format) == 'i' || (**format) == 'd')
         answer = ft_update(answer, conversion_d_i(arg, flags));

@@ -26,12 +26,14 @@ int main()
 // p = 5;
 //     ft_printf("%jx\n", -4294967296);
 //    ft_printf("%#o\n", 0);
-wchar_t newstring[7] = {0x43, 0x01A9, 0x43, 0x01A9, 0x01A9, 0x01A9, 0};
+// wchar_t newstring[7] = {0x43, 0x01A9, 0x43, 0x01A9, 0x01A9, 0x01A9, 0};
+wchar_t newstring[7] = {0x01A9, 0x01A9, 0x01A9, 0x01A9, 0x01A9, 0x01A9, 0};
+
 //	ft_putwchar(33121);
 
 	setlocale(LC_ALL, "");
 
-	printf("ft = %d\n", ft_printf("%S\n", newstring));
+	printf("ft = %d\n", ft_printf("%ls\n", newstring));
 	printf("reg = %d\n", printf("%S\n", newstring));
 //    printf("reg = %d %C %s %d %u %X %c", 123, L'ÊM-^ZM-^V', "123", 123, -1, 123, 'a');
     	// printf("%#8x\n", 2);
