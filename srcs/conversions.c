@@ -5,7 +5,6 @@ char          *conversions(char **format, t_flags *flags, va_list *arg)
     char    *answer;
 
     answer = ft_strnew(1);
-    flags->conversion = (**format);
     if ((**format) == 's' && ft_strcmp(flags->format, "l"))
         answer = ft_update(answer, conversion_s(arg, flags));
     if ((**format) == 'c' && ft_strcmp(flags->format, "l"))

@@ -124,10 +124,10 @@ int     parse_flags(char **format, t_flags *flags, va_list *arg)
         return (-1);
     if ((handling_format(format, flags)) == NULL)
         return (-1);
+    flags->conversion = (**format);
     if (!ft_strcmp(flags->format, "l") && (**format) == 'c')
         flags->conversion = 'C';
     if (!ft_strcmp(flags->format, "l") && (**format) == 's')
         flags->conversion = 'S';
-//    printf("Flags: Hash = %d  Space = %d  Plus = %d  Right Padding = %d  Zero = %d  Width = %d  Precision = %d  Format = %s\n", flags->hashtag, flags->space, flags->plus, flags->right_padding, flags->zero_padding, flags->width, flags->precision, flags->length);
     return (1);
 }

@@ -22,6 +22,7 @@ int         narrow_ft_printf(const char *format, va_list *arg, int length)
     ++next;
     ft_bzero(&flags, sizeof(t_flags));
     parse_flags(&next, &flags, arg); // IDENTIFYING EVERYTHING AFTER % AND BEFORE CONVERSIONS
+    printf("char = %c   format = %s\n", flags.conversion, flags.format);
 
     if (flags.conversion == 'C' || flags.conversion == 'S')
         length += wide_character_string(&next, &flags, arg);

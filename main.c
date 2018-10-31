@@ -29,7 +29,7 @@ int main()
 
 	u = 4294967294;
 
-	  ft_printf("ft  = 123");
+	  ft_printf("ft  = %C", 123);
 //    printf("reg = %d %C %s %d %u %X %c", 123, L'ÊM-^ZM-^V', "123", 123, -1, 123, 'a');
     	// printf("%#8x\n", 2);
     // printf("%#o\n", 0);
