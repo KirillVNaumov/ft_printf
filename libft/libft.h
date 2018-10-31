@@ -6,7 +6,7 @@
 /*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 13:05:51 by knaumov           #+#    #+#             */
-/*   Updated: 2018/10/31 13:52:29 by knaumov          ###   ########.fr       */
+/*   Updated: 2018/10/31 15:05:32 by knaumov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t				ft_strlen(const char *s);
 int					ft_wstrlen(wchar_t *str);
+int					ft_wchrlen(wchar_t wc);
 char				*ft_strdup(const char *s1);
 char				*ft_wstrdup(wchar_t *s1);
 char				*ft_strcpy(char *dst, const char *src);
