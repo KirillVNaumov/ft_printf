@@ -6,7 +6,7 @@
 /*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/30 13:30:54 by knaumov           #+#    #+#             */
-/*   Updated: 2018/10/30 22:20:30 by knaumov          ###   ########.fr       */
+/*   Updated: 2018/10/30 22:42:20 by knaumov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putwchar(wchar_t c)
 {
-	ft_putwchar_fd(c, STDOUT_FILENO);
+	ft_putwchar_fd(c, 1);
 }

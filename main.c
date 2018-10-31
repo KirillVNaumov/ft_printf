@@ -29,7 +29,7 @@ wchar_t wide[3] = {33121, 33121, 0};
 
 //	ft_putwchar(33121);
 
-	ft_printf("%C \n", wide);
+	ft_printf("%-10C", 33121);
 //    printf("reg = %d %C %s %d %u %X %c", 123, L'ÊM-^ZM-^V', "123", 123, -1, 123, 'a');
     	// printf("%#8x\n", 2);
     // printf("%#o\n", 0);
