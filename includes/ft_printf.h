@@ -50,6 +50,7 @@ char         *conversion_o_O(va_list *arg, t_flags *flags);
 char         *conversion_x_X(va_list *arg, t_flags *flags);
 char         *conversion_u_D_U(va_list *arg, t_flags *flags);
 char         *adding_width(t_flags *flags, char *str);
+int          adding_width_wide(t_flags *flags, int length_str);
 char         *adding_plus(t_flags *flags, char *str);
 char         *adding_space(t_flags *flags, char *str);
 char         *adding_minus(t_flags *flags, char *str);
@@ -59,6 +60,7 @@ int          ft_printf(const char *format, ...);
 
 //UTILS
 
+int          printing_string_wide(wchar_t *str);
 char		*ft_itoa_intmax(long long value);
 char		*ft_itoa_unsigned(uintmax_t value);
 char	    *ft_itoa_base_unsigned(uintmax_t value, int base);

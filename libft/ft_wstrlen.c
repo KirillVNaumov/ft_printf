@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_wstrlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/10 12:07:54 by knaumov           #+#    #+#             */
-/*   Updated: 2018/10/30 21:53:30 by knaumov          ###   ########.fr       */
+/*   Created: 2018/10/30 21:53:33 by knaumov           #+#    #+#             */
+/*   Updated: 2018/10/30 21:54:19 by knaumov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+int		ft_wstrlen(wchar_t *str)
 {
-	size_t	len;
+	int		len;
 
 	len = 0;
 	while (str[len])
