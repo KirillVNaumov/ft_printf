@@ -41,10 +41,10 @@ typedef struct  s_flags
 int          parse_flags(char **format, t_flags *flags, va_list *arg);
 int          regular_character_string(char **next, t_flags *flags, va_list *arg);
 int          wide_character_string(char **next, t_flags *flags, va_list *arg);
-char         *conversions(char **format, t_flags *flags, va_list *arg);
+char         *conversions(char **format, t_flags *flags, va_list *arg, int *length);
 char         *conversion_c(va_list *arg);
 char         *conversion_wide_c(va_list *arg);
-char         *conversion_wide_s(va_list *arg);
+char         *conversion_wide_s(va_list *arg, int *length);
 char         *conversion_s(va_list *arg);
 char         *conversion_b(va_list *arg, t_flags *flags);
 char         *conversion_p(va_list *arg);

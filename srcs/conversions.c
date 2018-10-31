@@ -1,6 +1,6 @@
 # include "ft_printf.h"
 
-char          *conversions(char **format, t_flags *flags, va_list *arg)
+char          *conversions(char **format, t_flags *flags, va_list *arg, int *length)
 {
     char    *answer;
 
@@ -8,7 +8,7 @@ char          *conversions(char **format, t_flags *flags, va_list *arg)
     if (flags->conversion == 'C')
         answer = ft_update(answer, conversion_wide_c(arg));
     if (flags->conversion == 'S')
-        answer = ft_update(answer, conversion_wide_s(arg));
+        answer = ft_update(answer, conversion_wide_s(arg, length));
     if ((**format) == 's')
         answer = ft_update(answer, conversion_s(arg));
     if ((**format) == 'c')

@@ -22,8 +22,9 @@ int         narrow_ft_printf(const char *format, va_list *arg, int length)
     ft_bzero(&flags, sizeof(t_flags));
     parse_flags(&next, &flags, arg); // IDENTIFYING EVERYTHING AFTER % AND BEFORE CONVERSIONS
 
-    tmp = conversions(&next, &flags, arg);
-    length += ft_strlen(tmp);
+    tmp = conversions(&next, &flags, arg, &length);
+    if (flags.conversion != 'S')
+        length += ft_strlen(tmp);
     write(1, tmp, ft_strlen(tmp));
     free(tmp);
 
