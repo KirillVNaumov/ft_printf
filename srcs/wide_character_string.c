@@ -20,7 +20,7 @@ int    wide_character_string(char **next, t_flags *flags, va_list *arg)
     if (flags->conversion == 'S')
     {
         tmp_str = va_arg(*arg, wchar_t *);
-        if (flags->right_padding == 1)
+        if (flags->right_padding == 0)
             length += adding_width_wide(flags, ft_wstrlen(tmp_str));
         length += printing_string_wide(tmp_str);
         if (flags->right_padding == 1)

@@ -7,7 +7,7 @@ int     adding_width_wide(t_flags *flags, int length_str)
 
     if (flags->width <= length_str)
         return (0);
-    tmp = ft_bchar(flags->width, ' ');
+    tmp = ft_bchar(flags->width - length_str, ' ');
     l = ft_strlen(tmp);
     write(1, tmp, l);
     free(tmp);
