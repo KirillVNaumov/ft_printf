@@ -18,13 +18,13 @@ char          *conversions(char **format, t_flags *flags, va_list *arg, int *len
     if ((**format) == 'p') 
         answer = ft_update(answer, conversion_p(arg));
     if ((**format) == 'D' || (**format) == 'u' || (**format) == 'U') 
-        answer = ft_update(answer, conversion_u_D_U(arg, flags));
+        answer = ft_update(answer, conversion_u_cap_d_cap_u(arg, flags));
     if ((**format) == 'o' || (**format) == 'O') 
-        answer = ft_update(answer, conversion_o_O(arg, flags));
+        answer = ft_update(answer, conversion_o_cap_o(arg, flags));
     if ((**format) == 'b') 
         answer = ft_update(answer, conversion_b(arg, flags));
     if ((**format) == 'x' || (**format) == 'X') 
-        answer = ft_update(answer, conversion_x_X(arg, flags));
+        answer = ft_update(answer, conversion_x_cap_x(arg, flags));
     if ((**format) == '%')
         answer = ft_update(answer, ft_bchar(1, '%'));
     if (flags->precision_exist != 0)

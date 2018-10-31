@@ -1,4 +1,16 @@
-# include "ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa_intmax.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/10/31 15:36:38 by knaumov           #+#    #+#             */
+/*   Updated: 2018/10/31 15:37:33 by knaumov          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
 
 static long long	ft_abs(long long nb)
 {
@@ -7,11 +19,11 @@ static long long	ft_abs(long long nb)
 	return (nb);
 }
 
-static char		*itoa_filler(char *tab, long long value, int flag)
+static char			*itoa_filler(char *tab, long long value, int flag)
 {
-	long long			tmp;
-	int			size;
-	char		*str;
+	long long		tmp;
+	int				size;
+	char			*str;
 
 	size = 0;
 	tmp = ft_abs(value);
@@ -33,11 +45,11 @@ static char		*itoa_filler(char *tab, long long value, int flag)
 	return (str);
 }
 
-char			*ft_itoa_intmax(long long value)
+char				*ft_itoa_intmax(long long value)
 {
-	char		*str;
-	char		*tab;
-	int			flag;
+	char			*str;
+	char			*tab;
+	int				flag;
 
 	flag = 0;
 	tab = "0123456789abcdef";

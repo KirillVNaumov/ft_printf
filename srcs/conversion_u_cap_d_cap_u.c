@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-char    *conversion_u_D_U(va_list *arg, t_flags *flags)
+char    *conversion_u_cap_d_cap_u(va_list *arg, t_flags *flags)
 {
     char    *answer;
     intmax_t   tmp;

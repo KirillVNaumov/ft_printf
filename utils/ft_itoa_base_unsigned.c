@@ -1,6 +1,18 @@
-# include "ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa_base_unsigned.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/10/31 15:35:46 by knaumov           #+#    #+#             */
+/*   Updated: 2018/10/31 15:36:33 by knaumov          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static char	*itoa_filler(char *tab, uintmax_t value, int base)
+#include "ft_printf.h"
+
+static char				*itoa_filler(char *tab, uintmax_t value, int base)
 {
 	uintmax_t			tmp;
 	int					size;
@@ -22,7 +34,7 @@ static char	*itoa_filler(char *tab, uintmax_t value, int base)
 	return (str);
 }
 
-char	*ft_itoa_base_unsigned(uintmax_t value, int base)
+char					*ft_itoa_base_unsigned(uintmax_t value, int base)
 {
 	char				*str;
 	char				*tab;

@@ -1,13 +1,25 @@
-# include "ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa_unsigned.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/10/31 15:37:39 by knaumov           #+#    #+#             */
+/*   Updated: 2018/10/31 15:38:07 by knaumov          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
 
 static char		*itoa_filler(char *tab, uintmax_t value)
 {
-	uintmax_t			tmp;
+	uintmax_t	tmp;
 	int			size;
 	char		*str;
 
 	size = 0;
-    tmp = value;
+	tmp = value;
 	while (tmp /= 10)
 		size++;
 	size = size + 1;
