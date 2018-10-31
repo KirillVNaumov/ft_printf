@@ -11,7 +11,7 @@ int    wide_character_string(char **next, t_flags *flags, va_list *arg)
     {
         if (flags->right_padding == 0)
             length += adding_width_wide(flags, 1);
-        tmp_chr = va_arg(*arg, wchar_t);
+        tmp_chr = va_arg(*arg, wint_t);
         ft_putwchar(tmp_chr);
         length++;
         if (flags->right_padding == 1)
