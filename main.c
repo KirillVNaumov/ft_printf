@@ -29,7 +29,7 @@ int main()
 
 //	ft_putwchar(33121);
 
-	ft_printf("%s%o\n", "\x1B[31m", 127);
+	ft_printf("%S\n", "0x042");
 //    printf("reg = %d %C %s %d %u %X %c", 123, L'ÊM-^ZM-^V', "123", 123, -1, 123, 'a');
     	// printf("%#8x\n", 2);
     // printf("%#o\n", 0);

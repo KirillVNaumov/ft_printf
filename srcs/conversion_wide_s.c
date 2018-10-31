@@ -6,6 +6,6 @@ char    *conversion_wide_s(va_list *arg)
     char        *str;
 
     tmp_str = va_arg(*arg, wchar_t *);
-    str = ft_wstrdup(tmp_str);
+    str = ft_strdup((char *)tmp_str);
     return (str);
 }
