@@ -8,7 +8,6 @@ char    *conversion_wide_s(va_list *arg, int *length)
     tmp_str = va_arg(*arg, wchar_t *);
     *length += ft_wstrlen(tmp_str);
     str = ft_wstrdup(tmp_str);
-    write(1, str, ft_strlen(str));
-    ft_putchar('\n');
+
     return (str);
 }
