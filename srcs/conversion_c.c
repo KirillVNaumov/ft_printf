@@ -19,7 +19,12 @@ char		*conversion_c(va_list *arg, int *length)
 
 	tmp = va_arg(*arg, int);
 	if (tmp == '\0')
+	{
 		(*length)++;
-	str = ft_bchar(1, (char)tmp);
+		ft_putchar('\0');
+		str = ft_strnew(1);
+	}
+	else
+		str = ft_bchar(1, (char)tmp);
 	return (str);
 }
