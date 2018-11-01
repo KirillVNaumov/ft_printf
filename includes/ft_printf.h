@@ -33,6 +33,10 @@ typedef struct	s_flags
 }				t_flags;
 int				parse_flags(char **format, t_flags *flags, \
 							va_list *arg);
+char		*handling_flags(char **format, t_flags *flags);
+char		*handling_format(char **format, t_flags *flags);
+char		*handling_precision(char **format, t_flags *flags, va_list *arg);
+char		*handling_width(char **format, t_flags *flags, va_list *arg);
 int				regular_character_string(char **next, t_flags *flags, \
 							va_list *arg);
 int				wide_character_string(char **next, t_flags *flags, \

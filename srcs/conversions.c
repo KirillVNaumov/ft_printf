@@ -30,6 +30,15 @@ char		*apply_flags(char *answer, t_flags *flags)
 	return (answer);
 }
 
+char		*conversions_extra(t_flags *flags, va_list *arg, char *answer)
+{
+	if (flags->conversion == 'b')
+		answer = ft_update(answer, conversion_b(arg, flags));
+	if (flags->conversion == '%')
+		answer = ft_update(answer, ft_bchar(1, '%'));
+	return (answer);
+}
+
 char		*conversions(t_flags *flags, va_list *arg, int *length)
 {
 	char	*answer;
@@ -47,16 +56,14 @@ char		*conversions(t_flags *flags, va_list *arg, int *length)
 		answer = ft_update(answer, conversion_d_i(arg, flags));
 	if (flags->conversion == 'p')
 		answer = ft_update(answer, conversion_p(arg));
-	if (flags->conversion == 'D' || flags->conversion == 'u' || flags->conversion == 'U')
+	if (flags->conversion == 'D' || flags->conversion == 'u' || \
+		flags->conversion == 'U')
 		answer = ft_update(answer, conversion_u_cap_d_cap_u(arg, flags));
 	if (flags->conversion == 'o' || flags->conversion == 'O')
 		answer = ft_update(answer, conversion_o_cap_o(arg, flags));
-	if (flags->conversion == 'b')
-		answer = ft_update(answer, conversion_b(arg, flags));
 	if (flags->conversion == 'x' || flags->conversion == 'X')
 		answer = ft_update(answer, conversion_x_cap_x(arg, flags));
-	if (flags->conversion == '%')
-		answer = ft_update(answer, ft_bchar(1, '%'));
+	answer = conversions_extra(flags, arg, answer);
 	answer = apply_flags(answer, flags);
 	return (answer);
 }
