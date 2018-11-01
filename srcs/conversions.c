@@ -6,7 +6,7 @@
 /*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/31 18:52:46 by knaumov           #+#    #+#             */
-/*   Updated: 2018/10/31 22:49:32 by knaumov          ###   ########.fr       */
+/*   Updated: 2018/10/31 23:18:23 by knaumov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char		*apply_flags(char *answer, t_flags *flags, int *length)
 {
-	if (flags->precision_exist != 0)
+	if (flags->precision_exist != 0 && flags->null_char == 0)
 	{
 		answer = ft_update(answer, adding_precision_string(flags, answer));
 		answer = ft_update(answer, adding_precision_number(flags, answer));
@@ -26,7 +26,7 @@ char		*apply_flags(char *answer, t_flags *flags, int *length)
 	else if (flags->space == 1)
 		answer = ft_update(answer, adding_space(flags, answer));
 	if (flags->width != 0 && flags->null_char == 0)
-			answer = adding_width(flags, answer);
+		answer = adding_width(flags, answer);
 	if (flags->null_char == 1)
 		answer = adding_width_null_char(flags, answer, length);
 	return (answer);
@@ -47,7 +47,7 @@ char		*conversions(t_flags *flags, va_list *arg, int *length)
 
 	answer = ft_strnew(1);
 	if (flags->conversion == 'C')
-		answer = ft_update(answer, conversion_wide_c(arg));
+		answer = ft_update(answer, conversion_wide_c(arg, length, flags));
 	if (flags->conversion == 'S')
 		answer = ft_update(answer, conversion_wide_s(arg, length));
 	if (flags->conversion == 's')

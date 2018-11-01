@@ -6,7 +6,7 @@
 /*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/25 10:15:59 by knaumov           #+#    #+#             */
-/*   Updated: 2018/10/31 21:15:22 by knaumov          ###   ########.fr       */
+/*   Updated: 2018/10/31 23:17:44 by knaumov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int				wide_character_string(char **next, t_flags *flags, \
 			va_list *arg);
 char			*conversions(t_flags *flags, va_list *arg, int *length);
 char			*conversion_c(va_list *arg, int *length, t_flags *flags);
-char			*conversion_wide_c(va_list *arg);
+char			*conversion_wide_c(va_list *arg, int *length, t_flags *flags);
 char			*conversion_wide_s(va_list *arg, int *length);
 char			*conversion_s(va_list *arg);
 char			*conversion_b(va_list *arg, t_flags *flags);
@@ -56,7 +56,7 @@ char			*conversion_x_cap_x(va_list *arg, t_flags *flags);
 char			*conversion_u_cap_d_cap_u(va_list *arg, t_flags *flags);
 char			*adding_width(t_flags *flags, char *str);
 int				adding_width_wide(t_flags *flags, int length_str);
-char       		*adding_width_null_char(t_flags *flags, char *str, int *length);
+char			*adding_width_null_char(t_flags *flags, char *str, int *length);
 char			*adding_plus(t_flags *flags, char *str);
 char			*adding_space(t_flags *flags, char *str);
 char			*adding_minus(t_flags *flags, char *str);

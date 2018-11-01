@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-char			*conversion_wide_c(va_list *arg)
+char			*conversion_wide_c(va_list *arg, int *length, t_flags *flags)
 {
 	wchar_t		tmp_chr;
 	char		chr;
@@ -20,6 +20,13 @@ char			*conversion_wide_c(va_list *arg)
 
 	tmp_chr = va_arg(*arg, wint_t);
 	chr = (char)tmp_chr;
-	str = ft_bchar(1, chr);
+	if (chr == '\0')
+	{
+		(*length)++;
+		flags->null_char = 1;
+		str = ft_strnew(1);
+	}
+	else
+		str = ft_bchar(1, chr);
 	return (str);
 }
