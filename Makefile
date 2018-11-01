@@ -6,7 +6,7 @@
 #    By: knaumov <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/25 10:18:27 by knaumov           #+#    #+#              #
-#    Updated: 2018/10/31 19:01:48 by knaumov          ###   ########.fr        #
+#    Updated: 2018/10/31 21:03:30 by knaumov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ $(NAME):
 
 clean:
 	@/bin/rm -f ./*.o
+	@make -C libft clean
 	@echo "$(RED)Deleting objects for libftprintf.a$(RESET)"
 	@echo "$(BLUE)Complete$(RESET)"
 
