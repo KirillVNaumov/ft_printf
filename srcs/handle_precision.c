@@ -6,16 +6,25 @@
 /*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/31 20:30:38 by knaumov           #+#    #+#             */
-/*   Updated: 2018/10/31 20:30:39 by knaumov          ###   ########.fr       */
+/*   Updated: 2018/10/31 20:48:30 by knaumov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+void		ft_star_precision(int *star_precision, va_list *arg, \
+								t_flags *flags)
+{
+	int		precision;
+
+	*star_precision = -1;
+	precision = va_arg(*arg, int);
+	flags->precision = precision;
+}
+
 char		*handling_precision(char **format, t_flags *flags, va_list *arg)
 {
 	int		star_precision;
-	int		precision;
 
 	star_precision = 0;
 	if (**format == '.')
@@ -24,16 +33,10 @@ char		*handling_precision(char **format, t_flags *flags, va_list *arg)
 			flags->precision_exist = 1;
 			if (star_precision == 1 && ft_isdigit(**format))
 				return (NULL);
-			if (star_precision == -1 && **format == '*')
-				return (NULL);
-			if (star_precision == 1 && **format == '*')
+			if (star_precision != 0 && **format == '*')
 				return (NULL);
 			if (**format == '*')
-			{
-				star_precision = -1;
-				precision = va_arg(*arg, int);
-				flags->precision = precision;
-			}
+				ft_star_precision(&star_precision, arg, flags);
 			if (ft_isdigit(**format))
 			{
 				star_precision = -1;

@@ -6,7 +6,7 @@
 /*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/25 10:15:59 by knaumov           #+#    #+#             */
-/*   Updated: 2018/10/31 15:34:54 by knaumov          ###   ########.fr       */
+/*   Updated: 2018/10/31 20:54:22 by knaumov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,16 @@ typedef struct	s_flags
 	char		*format;
 }				t_flags;
 int				parse_flags(char **format, t_flags *flags, \
-							va_list *arg);
-char		*handling_flags(char **format, t_flags *flags);
-char		*handling_format(char **format, t_flags *flags);
-char		*handling_precision(char **format, t_flags *flags, va_list *arg);
-char		*handling_width(char **format, t_flags *flags, va_list *arg);
+			va_list *arg);
+char			*handling_flags(char **format, t_flags *flags);
+char			*handling_format(char **format, t_flags *flags);
+char			*handling_precision(char **format, t_flags *flags, \
+			va_list *arg);
+char			*handling_width(char **format, t_flags *flags, va_list *arg);
 int				regular_character_string(char **next, t_flags *flags, \
-							va_list *arg);
+			va_list *arg);
 int				wide_character_string(char **next, t_flags *flags, \
-							va_list *arg);
+			va_list *arg);
 char			*conversions(t_flags *flags, va_list *arg, int *length);
 char			*conversion_c(va_list *arg);
 char			*conversion_wide_c(va_list *arg);

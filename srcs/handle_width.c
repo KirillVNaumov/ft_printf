@@ -6,16 +6,29 @@
 /*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/31 20:30:43 by knaumov           #+#    #+#             */
-/*   Updated: 2018/10/31 20:32:15 by knaumov          ###   ########.fr       */
+/*   Updated: 2018/10/31 20:47:49 by knaumov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+void		ft_star_width(int *star_width, va_list *arg, t_flags *flags)
+{
+	int width;
+
+	*star_width = 1;
+	width = va_arg(*arg, int);
+	if (width < 0)
+	{
+		width = -width;
+		flags->right_padding = 1;
+	}
+	flags->width = width;
+}
+
 char		*handling_width(char **format, t_flags *flags, va_list *arg)
 {
 	int		star_width;
-	int		width;
 
 	star_width = 0;
 	while (**format == '*' || ft_isdigit(**format))
@@ -24,16 +37,7 @@ char		*handling_width(char **format, t_flags *flags, va_list *arg)
 			(star_width != 0 && **format == '*'))
 			return (NULL);
 		if (**format == '*')
-		{
-			star_width = 1;
-			width = va_arg(*arg, int);
-			if (width < 0)
-			{
-				width = -width;
-				flags->right_padding = 1;
-			}
-			flags->width = width;
-		}
+			ft_star_width(&star_width, arg, flags);
 		if (ft_isdigit(**format))
 		{
 			star_width = -1;
