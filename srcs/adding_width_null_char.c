@@ -6,13 +6,14 @@
 /*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/31 23:18:44 by knaumov           #+#    #+#             */
-/*   Updated: 2018/10/31 23:20:03 by knaumov          ###   ########.fr       */
+/*   Updated: 2018/11/01 12:01:24 by knaumov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char		*adding_width_null_char(t_flags *flags, char *answer, int *length, char **str)
+char		*adding_width_null_char(t_flags *flags, char *answer, \
+		int *length, char **str)
 {
 	char	*width;
 

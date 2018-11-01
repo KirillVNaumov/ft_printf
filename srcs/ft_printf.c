@@ -6,11 +6,22 @@
 /*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/31 19:42:21 by knaumov           #+#    #+#             */
-/*   Updated: 2018/10/31 19:48:47 by knaumov          ###   ########.fr       */
+/*   Updated: 2018/11/01 12:09:04 by knaumov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int				final_print(const char *format, char *str)
+{
+	int		length;
+
+	str = ft_update(str, ft_strjoin(str, format));
+	write(1, str, ft_strlen(str));
+	length = ft_strlen(str);
+	free(str);
+	return (length);
+}
 
 int				narrow_ft_printf(const char *format, va_list *arg, char *str)
 {
@@ -23,13 +34,7 @@ int				narrow_ft_printf(const char *format, va_list *arg, char *str)
 		length = 0;
 	next = ft_strchr(format, '%');
 	if (next == NULL)
-	{
-		str = ft_update(str, ft_strjoin(str, format));
-		write(1, str, ft_strlen(str));
-		length += ft_strlen(str);
-		free(str);
-		return (length);
-	}
+		return (length + final_print(format, str));
 	tmp = ft_strccrt(format, '%');
 	str = ft_update(str, ft_strjoin(str, tmp));
 	free(tmp);
