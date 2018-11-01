@@ -6,7 +6,7 @@
 /*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/31 18:52:46 by knaumov           #+#    #+#             */
-/*   Updated: 2018/10/31 19:11:58 by knaumov          ###   ########.fr       */
+/*   Updated: 2018/10/31 19:19:48 by knaumov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ char		*apply_flags(char *answer, t_flags *flags)
 	return (answer);
 }
 
-char		*conversions(char **format, t_flags *flags, \
-							va_list *arg, int *length)
+char		*conversions(t_flags *flags, va_list *arg, int *length)
 {
 	char	*answer;
 
@@ -44,20 +43,20 @@ char		*conversions(char **format, t_flags *flags, \
 		answer = ft_update(answer, conversion_s(arg));
 	if (flags->conversion == 'c')
 		answer = ft_update(answer, conversion_c(arg));
-	if ((**format) == 'i' || (**format) == 'd')
+	if (flags->conversion == 'i' || flags->conversion == 'd')
 		answer = ft_update(answer, conversion_d_i(arg, flags));
-	if ((**format) == 'p')
+	if (flags->conversion == 'p')
 		answer = ft_update(answer, conversion_p(arg));
-	if ((**format) == 'D' || (**format) == 'u' || (**format) == 'U')
+	if (flags->conversion == 'D' || flags->conversion == 'u' || flags->conversion == 'U')
 		answer = ft_update(answer, conversion_u_cap_d_cap_u(arg, flags));
-	if ((**format) == 'o' || (**format) == 'O')
+	if (flags->conversion == 'o' || flags->conversion == 'O')
 		answer = ft_update(answer, conversion_o_cap_o(arg, flags));
-	if ((**format) == 'b')
+	if (flags->conversion == 'b')
 		answer = ft_update(answer, conversion_b(arg, flags));
-	if ((**format) == 'x' || (**format) == 'X')
+	if (flags->conversion == 'x' || flags->conversion == 'X')
 		answer = ft_update(answer, conversion_x_cap_x(arg, flags));
-	if ((**format) == '%')
+	if (flags->conversion == '%')
 		answer = ft_update(answer, ft_bchar(1, '%'));
-	(*format)++;
-	return (apply_flags(answer, flags));
+	answer = apply_flags(answer, flags);
+	return (answer);
 }

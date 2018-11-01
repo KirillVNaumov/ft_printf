@@ -37,8 +37,7 @@ int				regular_character_string(char **next, t_flags *flags, \
 							va_list *arg);
 int				wide_character_string(char **next, t_flags *flags, \
 							va_list *arg);
-char			*conversions(char **format, t_flags *flags, \
-							va_list *arg, int *length);
+char			*conversions(t_flags *flags, va_list *arg, int *length);
 char			*conversion_c(va_list *arg);
 char			*conversion_wide_c(va_list *arg);
 char			*conversion_wide_s(va_list *arg, int *length);
