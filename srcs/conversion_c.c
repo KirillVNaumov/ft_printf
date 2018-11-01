@@ -6,13 +6,13 @@
 /*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/31 16:07:01 by knaumov           #+#    #+#             */
-/*   Updated: 2018/10/31 22:19:50 by knaumov          ###   ########.fr       */
+/*   Updated: 2018/10/31 22:24:43 by knaumov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char		*conversion_c(va_list *arg, int *length)
+char		*conversion_c(va_list *arg, int *length, t_flags *flags)
 {
 	char	*str;
 	int		tmp;
@@ -21,7 +21,7 @@ char		*conversion_c(va_list *arg, int *length)
 	if (tmp == '\0')
 	{
 		(*length)++;
-		ft_putchar('\0');
+		flags->null_char = 1;
 		str = ft_strnew(1);
 	}
 	else

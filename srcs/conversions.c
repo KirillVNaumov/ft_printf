@@ -6,13 +6,13 @@
 /*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/31 18:52:46 by knaumov           #+#    #+#             */
-/*   Updated: 2018/10/31 21:15:02 by knaumov          ###   ########.fr       */
+/*   Updated: 2018/10/31 22:49:32 by knaumov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char		*apply_flags(char *answer, t_flags *flags)
+char		*apply_flags(char *answer, t_flags *flags, int *length)
 {
 	if (flags->precision_exist != 0)
 	{
@@ -25,8 +25,10 @@ char		*apply_flags(char *answer, t_flags *flags)
 		answer = ft_update(answer, adding_plus(flags, answer));
 	else if (flags->space == 1)
 		answer = ft_update(answer, adding_space(flags, answer));
-	if (flags->width != 0)
-		answer = adding_width(flags, answer);
+	if (flags->width != 0 && flags->null_char == 0)
+			answer = adding_width(flags, answer);
+	if (flags->null_char == 1)
+		answer = adding_width_null_char(flags, answer, length);
 	return (answer);
 }
 
@@ -51,7 +53,7 @@ char		*conversions(t_flags *flags, va_list *arg, int *length)
 	if (flags->conversion == 's')
 		answer = ft_update(answer, conversion_s(arg));
 	if (flags->conversion == 'c')
-		answer = ft_update(answer, conversion_c(arg, length));
+		answer = ft_update(answer, conversion_c(arg, length, flags));
 	if (flags->conversion == 'i' || flags->conversion == 'd')
 		answer = ft_update(answer, conversion_d_i(arg, flags));
 	if (flags->conversion == 'p')
@@ -64,6 +66,6 @@ char		*conversions(t_flags *flags, va_list *arg, int *length)
 	if (flags->conversion == 'x' || flags->conversion == 'X')
 		answer = ft_update(answer, conversion_x_cap_x(arg, flags));
 	answer = conversions_extra(flags, arg, answer);
-	answer = apply_flags(answer, flags);
+	answer = apply_flags(answer, flags, length);
 	return (answer);
 }
