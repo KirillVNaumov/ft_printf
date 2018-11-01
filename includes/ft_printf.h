@@ -6,7 +6,7 @@
 /*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/25 10:15:59 by knaumov           #+#    #+#             */
-/*   Updated: 2018/10/31 20:54:22 by knaumov          ###   ########.fr       */
+/*   Updated: 2018/10/31 21:15:22 by knaumov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int				regular_character_string(char **next, t_flags *flags, \
 int				wide_character_string(char **next, t_flags *flags, \
 			va_list *arg);
 char			*conversions(t_flags *flags, va_list *arg, int *length);
-char			*conversion_c(va_list *arg);
+char			*conversion_c(va_list *arg, int *length);
 char			*conversion_wide_c(va_list *arg);
 char			*conversion_wide_s(va_list *arg, int *length);
 char			*conversion_s(va_list *arg);

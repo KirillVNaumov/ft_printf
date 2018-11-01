@@ -6,7 +6,7 @@
 /*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/31 18:52:46 by knaumov           #+#    #+#             */
-/*   Updated: 2018/10/31 19:19:48 by knaumov          ###   ########.fr       */
+/*   Updated: 2018/10/31 21:15:02 by knaumov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char		*conversions(t_flags *flags, va_list *arg, int *length)
 	if (flags->conversion == 's')
 		answer = ft_update(answer, conversion_s(arg));
 	if (flags->conversion == 'c')
-		answer = ft_update(answer, conversion_c(arg));
+		answer = ft_update(answer, conversion_c(arg, length));
 	if (flags->conversion == 'i' || flags->conversion == 'd')
 		answer = ft_update(answer, conversion_d_i(arg, flags));
 	if (flags->conversion == 'p')

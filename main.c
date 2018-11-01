@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conversion_c.c                                     :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/31 16:07:01 by knaumov           #+#    #+#             */
-/*   Updated: 2018/10/31 21:15:41 by knaumov          ###   ########.fr       */
+/*   Created: 2018/10/31 21:09:57 by knaumov           #+#    #+#             */
+/*   Updated: 2018/10/31 21:12:04 by knaumov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stdio.h>
+#include "includes/ft_printf.h"
 
-char		*conversion_c(va_list *arg, int *length)
+int main()
 {
-	char	*str;
-	int		tmp;
-
-	tmp = va_arg(*arg, int);
-	if (tmp == '\0')
-		(*length)++;
-	str = ft_bchar(1, (char)tmp);
-	return (str);
+	printf("reg = %d\n", printf("123%c456\n", 0));
+	printf("ft  = %d\n", ft_printf("123%c456\n", 0));
 }
