@@ -6,48 +6,54 @@
 /*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/31 19:42:21 by knaumov           #+#    #+#             */
-/*   Updated: 2018/11/01 11:14:15 by knaumov          ###   ########.fr       */
+/*   Updated: 2018/10/31 19:48:47 by knaumov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int				narrow_ft_printf(const char *format, va_list *arg, int length)
+int				narrow_ft_printf(const char *format, va_list *arg, char *str)
 {
 	t_flags		flags;
 	char		*next;
 	char		*tmp;
+	static int	length;
 
+	if (!length)
+		length = 0;
 	next = ft_strchr(format, '%');
 	if (next == NULL)
 	{
-		write(1, format, ft_strlen(format));
-		return (length + ft_strlen(format));
+		str = ft_update(str, ft_strjoin(str, format));
+		write(1, str, ft_strlen(str));
+		length += ft_strlen(str);
+		free(str);
+		return (length);
 	}
 	tmp = ft_strccrt(format, '%');
-	length += ft_strlen(tmp);
-	write(1, tmp, ft_strlen(tmp));
+	str = ft_update(str, ft_strjoin(str, tmp));
 	free(tmp);
 	++next;
 	ft_bzero(&flags, sizeof(t_flags));
 	parse_flags(&next, &flags, arg);
-	tmp = conversions(&flags, arg, &length);
+	tmp = conversions(&flags, arg, &length, &str);
+	str = ft_update(str, ft_strjoin(str, tmp));
 	++next;
-		length += ft_strlen(tmp);
-	write(1, tmp, ft_strlen(tmp));
 	free(tmp);
 	free(flags.format);
-	return (narrow_ft_printf(next, arg, length));
+	return (narrow_ft_printf(next, arg, str));
 }
 
 int				ft_printf(const char *format, ...)
 {
 	int			length;
+	char		*str;
 	va_list		arg;
 
 	length = 0;
+	str = ft_strnew(1);
 	va_start(arg, format);
-	length = narrow_ft_printf(format, &arg, length);
+	length = narrow_ft_printf(format, &arg, str);
 	va_end(arg);
 	return (length);
 }

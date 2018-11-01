@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-char		*apply_flags(char *answer, t_flags *flags, int *length)
+char		*apply_flags(char *answer, t_flags *flags, int *length, char **str)
 {
 	if (flags->precision_exist != 0 && flags->null_char == 0)
 	{
@@ -28,7 +28,7 @@ char		*apply_flags(char *answer, t_flags *flags, int *length)
 	if (flags->width != 0 && flags->null_char == 0)
 		answer = adding_width(flags, answer);
 	if (flags->null_char == 1)
-		answer = adding_width_null_char(flags, answer, length);
+		answer = adding_width_null_char(flags, answer, length, str);
 	return (answer);
 }
 
@@ -41,7 +41,7 @@ char		*conversions_extra(t_flags *flags, va_list *arg, char *answer)
 	return (answer);
 }
 
-char		*conversions(t_flags *flags, va_list *arg, int *length)
+char		*conversions(t_flags *flags, va_list *arg, int *length, char **str)
 {
 	char	*answer;
 
@@ -49,7 +49,7 @@ char		*conversions(t_flags *flags, va_list *arg, int *length)
 	if (flags->conversion == 'C')
 		answer = ft_update(answer, conversion_wide_c(arg, length, flags));
 	if (flags->conversion == 'S')
-		answer = ft_update(answer, conversion_wide_s(arg, length));
+		answer = ft_update(answer, conversion_wide_s(arg));
 	if (flags->conversion == 's')
 		answer = ft_update(answer, conversion_s(arg));
 	if (flags->conversion == 'c')
@@ -66,6 +66,6 @@ char		*conversions(t_flags *flags, va_list *arg, int *length)
 	if (flags->conversion == 'x' || flags->conversion == 'X')
 		answer = ft_update(answer, conversion_x_cap_x(arg, flags));
 	answer = conversions_extra(flags, arg, answer);
-	answer = apply_flags(answer, flags, length);
+	answer = apply_flags(answer, flags, length, str);
 	return (answer);
 }
