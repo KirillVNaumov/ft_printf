@@ -6,7 +6,7 @@
 /*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/31 19:42:21 by knaumov           #+#    #+#             */
-/*   Updated: 2018/10/31 19:48:47 by knaumov          ###   ########.fr       */
+/*   Updated: 2018/11/01 11:14:15 by knaumov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int				narrow_ft_printf(const char *format, va_list *arg, int length)
 	next = ft_strchr(format, '%');
 	if (next == NULL)
 	{
-		ft_putstr(format);
+		write(1, format, ft_strlen(format));
 		return (length + ft_strlen(format));
 	}
 	tmp = ft_strccrt(format, '%');
@@ -33,7 +33,6 @@ int				narrow_ft_printf(const char *format, va_list *arg, int length)
 	parse_flags(&next, &flags, arg);
 	tmp = conversions(&flags, arg, &length);
 	++next;
-	if (flags.conversion != 'S')
 		length += ft_strlen(tmp);
 	write(1, tmp, ft_strlen(tmp));
 	free(tmp);
